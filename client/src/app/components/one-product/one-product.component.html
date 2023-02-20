@@ -1,0 +1,47 @@
+<div style="margin: 10vh;">
+    <h1>Tienda Yessik</h1>
+    <div class="image">
+        <img src="{{images[id][0]}}">
+        <img src="{{images[id][1]}}">
+        <img src="{{images[id][2]}}">
+    </div>
+        <h1>{{product.id}}. {{product.name}}</h1>
+        <p>Precio = {{product.price}}</p>
+        <p>Stock disponible = {{product.stock}}</p>
+
+<!-- ------------------------------------ ADMIN ------------------------------------------------->
+
+    <div *ngIf="adminConfirmation; else hola;" class="admin">
+        <div class="btn-stock">
+            <button mat-raised-button color="primary" (click)="removeStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
+            <button mat-raised-button color="primary" >Stock disponible = {{product.stock}}</button>
+            <button mat-raised-button color="primary" (click)="addStock()"><mat-icon>add_circle_outline</mat-icon></button>
+        </div>
+        <div class="btn-stockMin">
+            <button mat-raised-button color="primary" (click)="removeMinStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
+            <button mat-raised-button color="primary" >Stock minimo = {{product.stockMin}}</button>
+            <button mat-raised-button color="primary" (click)="addMinStock()"><mat-icon>add_circle_outline</mat-icon></button>
+        </div>
+        <div class="btn-stockMax">
+            <button mat-raised-button color="primary" (click)="removeMaxStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
+            <button mat-raised-button color="primary" >Stock maximo = {{product.stockMax}}</button>
+            <button mat-raised-button color="primary" (click)="addMaxStock()"><mat-icon>add_circle_outline</mat-icon></button>
+        </div>
+        <button mat-raised-button color="primary" (click)="saveChanges()" >Guardar Cambios</button>
+    </div>
+<!-- ------------------------------------ USER ------------------------------------------------->
+    <ng-template class="user" #hola>
+        <div *ngIf="userConfirmation; else sad" class="btn-TakeStock">
+            <button mat-raised-button color="primary" (click)="removeUserStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
+            <button mat-raised-button color="primary"  >{{userStock}}</button>
+            <button mat-raised-button color="primary" (click)="addUserStock()"><mat-icon>add_circle_outline</mat-icon></button>
+            <p *ngIf="userStock != 0">${{userStock * product.price}}</p>
+            <button mat-raised-button color="primary" (click)="imp()" >Agregar al carrito<mat-icon>add_shopping_cart</mat-icon></button>
+        </div>
+<!-- -------------------------------- NO REGISTERED -------------------------------------------->
+        <ng-template #sad>
+            <p style="color: red;" >Necesitas iniciar sesión para acceder al carrito de compras</p>
+            <a routerLink="/login">¿Deseas iniciar sesión?</a>
+        </ng-template>
+    </ng-template>
+</div>

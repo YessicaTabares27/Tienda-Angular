@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="datos">
+        <h1>Carrito</h1>
+        <div *ngFor="let dato of stock; index as i">
+            <div *ngIf="dato.id !== undefined && dato.userStock != 0 "><a routerLink="/product/{{i + 1}}">{{dato.name}}</a></div>
+            <div *ngIf="dato.id !== undefined && dato.userStock != 0 ">stock = {{dato.userStock}}</div>
+        </div>
+        <div class="buy" *ngIf="total != 0">
+            <p>Total a pagar = {{total}}</p>
+            <button mat-raised-button color="primary">Comprar<mat-icon>payment</mat-icon></button>
+        </div>
+    </div>
+    <div class="productos">
+        <div *ngFor="let dato of stock; index as i">
+            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][0]}}">
+            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][1]}}">
+            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][2]}}">
+        </div>
+    </div>
+</div>

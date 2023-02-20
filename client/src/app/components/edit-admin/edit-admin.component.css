@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    width: 70vh;
+    min-height: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register > button{
+    margin: 15px;
+}

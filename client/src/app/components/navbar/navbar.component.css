@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    position: fixed;
+    z-index: 100;
+}
+
+.navbar > button {
+    margin: 20px;
+}
+
+.cont {
+    font-size: 20px;
+}

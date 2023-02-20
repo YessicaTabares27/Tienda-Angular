@@ -1,0 +1,36 @@
+<div>
+    <mat-toolbar color="primary" class="navbar">
+        <a routerLink="/" mat-mini-fab color="accent"><mat-icon>home</mat-icon></a>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="accent" class="cont" [matMenuTriggerFor]="belowMenu"><b>Contactanos</b></button>
+        <mat-menu #belowMenu="matMenu">
+          <a href="https://web.whatsapp.com" target="_blank" mat-menu-item>3127160726</a>
+          <a href="https://mail.google.com" target="_blank" mat-menu-item>yeluo87@hotmail.com</a>
+        </mat-menu>
+        <!-- Si el usuario no ha iniciado sesion -->
+        <button *ngIf="userValidator === false" mat-mini-fab color="accent" class="example-icon"
+            [matMenuTriggerFor]="menu">
+            <mat-icon>people</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/login">Iniciar sesión</button>
+            <button mat-menu-item routerLink="/register">Registrarse</button>
+        </mat-menu>
+        <!-- Si el usuario no ha iniciado sesion -->
+        <button *ngIf="userValidator === true" mat-mini-fab color="accent" class="example-icon"
+            [matMenuTriggerFor]="menu2">
+            <mat-icon>people</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+            <button mat-menu-item (click)="logOut()">Cerrar sesión</button>
+        </mat-menu>
+        <!-- Dependiendo si el token (root) es true o false nos generará un boton u otro  -->
+        <a *ngIf="move()" routerLink="/editAdmin" mat-mini-fab class="example-icon">
+            <mat-icon><mat-icon>build</mat-icon></mat-icon>
+        </a>
+
+        <a *ngIf="!move()" routerLink="/shoppingcart" mat-mini-fab class="example-icon">
+            <mat-icon>shopping_cart</mat-icon>
+        </a>
+    </mat-toolbar>
+</div>

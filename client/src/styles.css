@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Se agregaron estilos globales */
+
+.container{
+    min-height: 85%;
+}
+
+main {
+    display: grid;
+    background-color: antiquewhite;
+    min-height: 100vh;
+    min-width: 100vw;
+    grid-template-rows: auto 1fr auto;
+}

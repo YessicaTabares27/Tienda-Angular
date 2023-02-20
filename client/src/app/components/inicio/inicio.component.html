@@ -1,0 +1,16 @@
+<div class="container-center-inicio">
+    <h1>Tienda Yessik</h1>
+    <div class="container">
+        <div class="products" *ngFor="let product of products; index as i">
+            <div class="imagen">
+                <img src="{{images[i + 1][0]}}">
+                <img src="{{images[i + 1][1]}}">
+                <img src="{{images[i + 1][2]}}">
+            </div>
+            <br />
+            <a routerLink="/product/{{i+1}}">{{product.name}}</a>
+            <br />
+            ${{product.price}} <br /> Stock disponible: {{product.stock}}
+        </div>
+    </div>
+</div>

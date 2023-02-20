@@ -1,0 +1,121 @@
+<div class="container">
+  <form [formGroup]="form" (submit)="saveForm()" class="register">
+    <h1>Registrarse</h1>
+    <div class="form">
+      <div class="username">
+          <mat-form-field appearance="fill">
+              <mat-label>Ingrese su usuario</mat-label>
+              <input matInput [(ngModel)]='user.username' formControlName="username">
+          </mat-form-field>
+          <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form"
+              *ngIf="usernameControl.invalid && (usernameControl.touched || usernameControl.dirty)">
+              <p class="error-msg" *ngIf="usernameControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="usernameControl.hasError('maxlength')">El campo no debe tener mas de 32
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="usernameControl.hasError('minlength')">El campo debe tener minimo 4
+                  caracteres</p>
+              <p class="error-msg" *ngIf="usernameControl.hasError('pattern')">No puede usar caracteres extraños
+              </p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+      <div class="address">
+          <mat-form-field appearance="fill">
+              <mat-label>Ingrese su dirección</mat-label>
+              <input matInput [(ngModel)]='user.address' formControlName="address">
+          </mat-form-field>
+          <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form"
+              *ngIf="addressControl.invalid && (addressControl.touched || addressControl.dirty)">
+              <p class="error-msg" *ngIf="addressControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="addressControl.hasError('maxlength')">El campo no debe tener mas de 32
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="addressControl.hasError('minlength')">El campo debe tener minimo 4
+                  caracteres</p>
+              <p class="error-msg" *ngIf="addressControl.hasError('pattern')">No puede usar caracteres extraños
+              </p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+      <div class="phone">
+          <mat-form-field appearance="fill">
+              <mat-label>Ingrese su telefono</mat-label>
+              <input matInput [(ngModel)]='user.phone' formControlName="phone">
+          </mat-form-field>
+          <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form" *ngIf="phoneControl.invalid && (phoneControl.touched || phoneControl.dirty)">
+              <p class="error-msg" *ngIf="phoneControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="phoneControl.hasError('maxlength')">El campo no debe tener mas de 15
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="phoneControl.hasError('minlength')">El campo debe tener minimo 7
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="phoneControl.hasError('pattern')">Solo puede ingresar numeros</p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+      <div class="email">
+          <mat-form-field appearance="fill">
+              <mat-label>Ingrese su correo</mat-label>
+              <input matInput [(ngModel)]='user.email' formControlName="email">
+          </mat-form-field>
+          <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form" *ngIf="emailControl.invalid && (emailControl.touched || emailControl.dirty)">
+              <p class="error-msg" *ngIf="emailControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="emailControl.hasError('email')">No es un correo valido</p>
+              <p class="error-msg" *ngIf="emailControl.hasError('maxlength')">El campo no debe tener mas de 100
+                  caracteres</p>
+              <p class="error-msg" *ngIf="emailControl.hasError('minlength')">El campo debe tener minimo 7
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="emailControl.hasError('pattern')">No puede usar caracteres extraños</p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+      <div class="password">
+          <mat-form-field appearance="fill">
+              <mat-label> Ingrese su contraseña</mat-label>
+              <input type="password" matInput [(ngModel)]='user.password' formControlName="password">
+          </mat-form-field>
+      <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form"
+              *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)">
+              <p class="error-msg" *ngIf="passwordControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('maxlength')">El campo no debe tener mas de 32
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('minlength')">El campo debe tener minimo 4
+                  caracteres</p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('pattern')">No puede usar caracteres extraños
+              </p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+      <div class="password">
+          <mat-form-field appearance="fill">
+              <mat-label> Repita su contraseña</mat-label>
+              <input type="password" matInput [(ngModel)]='user.password' formControlName="password">
+          </mat-form-field>
+          <!--------------------------------------- ERRORES ---------------------------------------------->
+          <div class="errors-form"
+              *ngIf="passwordControl.invalid && (passwordControl.touched || passwordControl.dirty)">
+              <p class="error-msg" *ngIf="passwordControl.hasError('required')">El campo es obligatorio</p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('maxlength')">El campo no debe tener mas de 32
+                  caracteres
+              </p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('minlength')">El campo debe tener minimo 4
+                  caracteres</p>
+              <p class="error-msg" *ngIf="passwordControl.hasError('pattern')">No puede usar caracteres extraños
+              </p>
+          </div>
+      </div>
+      <!---------------------------------- FIN DE LOS ERRORES ---------------------------------------->
+  </div>
+    <button type="submit" mat-flat-button color="primary">Enviar</button>
+    <a routerLink="/login">¿Tienes cuenta? <br> Inicia sesión aquí</a>
+  </form>
+</div>

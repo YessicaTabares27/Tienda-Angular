@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    width: 500px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login > button {
+    margin: 15px;
+}
